@@ -1,0 +1,25 @@
+@import "header";
+@import "pages";
+@import "homepage";
+@import "itempage";
+@import "cart";
+
+:root{
+    font-family: "roboto", sans-serif ;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
+}
+ul{
+    padding: 0;
+    list-style: none;
+}
+body{
+    margin: 0;
+}
+.error-container{
+    padding-top:10% ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

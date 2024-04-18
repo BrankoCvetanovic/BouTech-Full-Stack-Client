@@ -1,0 +1,120 @@
+.home-page{
+  background: rgb(229, 226, 226);
+  padding: 1rem 10% ;
+  min-height: 100vh;
+  .title{
+      font-size: 1.3rem;
+      margin-top: 1.4rem;
+      margin-bottom: 1.7rem;
+  }
+  .slider-container {
+    padding: 1rem 8%;
+    display: flex;
+    overflow: hidden;
+    .slider {
+      width: 75vw;
+      height: 300px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      .progress-bar{
+        width: 100%;
+        max-width: 620px;
+        color: rgb(223, 148, 10);
+      }
+      
+    }
+    .img {
+      opacity: 1;
+      object-fit: cover;
+      width: 100%;
+      max-width: 620px;
+    }
+
+  
+    article {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition:all 0.3s linear;;
+    }
+    article.activeSlide {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    article.lastSlide {
+      transform: translateX(-100%);
+    }
+    article.nextSlide {
+      transform: translateX(100%);
+    }
+  }
+  .categories{
+    padding-top:30px ;
+    display:flex;
+    justify-content: space-evenly;
+    gap:40px;
+    align-items: center;
+    overflow-x: scroll
+    ;
+    overflow-y: hidden;
+
+    
+    a{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: rgb(110, 109, 109);
+      font-size: 0.7rem;
+      text-align: center;
+      &:hover img{
+        scale: 1.1;
+      }
+    }
+    .container{
+      transform: rotate(45deg);
+      border-radius: 5px;
+      background: white;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    img{
+      transform: rotate(-45deg);
+      transition: ease-in-out 0.12s;
+      width: 45px;
+    }
+    .name{
+      z-index: 1;
+    }
+  }
+
+
+}
+
+@media (min-width: 950px) {
+  .img {
+    width: 80%;
+  }
+}
+@media (max-width: 750px) {
+ .home-page{
+  padding: 1rem;
+  .slider-container{
+  .slider{
+    height: 40vw;
+    width: 90vw;
+  }
+ }
+ }
+}
