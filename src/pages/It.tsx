@@ -13,6 +13,7 @@ import { Slider } from "@mui/material";
 import { useState } from "react";
 import Sort from "../components/Sort";
 import { loadedData } from "../util/types";
+import { link } from "../util/serverLink";
 
 export default function ITPage() {
   const data = useLoaderData() as loadedData;
@@ -81,9 +82,9 @@ export default function ITPage() {
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const sortBy = new URL(request.url).searchParams.toString();
 
-  let searchUrl = "https://boutech-server-cfe11ab86bbd.herokuapp.com/it";
+  let searchUrl = `${link}/it`;
   if (sortBy) {
-    searchUrl = `https://boutech-server-cfe11ab86bbd.herokuapp.com/it?${sortBy}`;
+    searchUrl = `${link}/it?${sortBy}`;
   }
   try {
     const response = await axios.get(searchUrl);

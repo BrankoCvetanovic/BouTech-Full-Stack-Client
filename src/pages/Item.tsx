@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useContext } from "react";
 import { CartContext } from "../components/CartContext";
+import { link } from "../util/serverLink";
 export default function ItemPage() {
   const data = useLoaderData() as LoaderItem;
 
@@ -20,11 +21,7 @@ export default function ItemPage() {
   return (
     <div className="item-page">
       <div className="img-container">
-        <img
-          id="img"
-          src={`https://boutech-server-cfe11ab86bbd.herokuapp.com/static/${data.image}`}
-          alt=""
-        />
+        <img id="img" src={`${link}/static/${data.image}`} alt="" />
       </div>
       <div className="info">
         <div className="name">{data.name}</div>
@@ -59,9 +56,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
 
   try {
-    const response = await axios.get(
-      `https://boutech-server-cfe11ab86bbd.herokuapp.com${url.pathname}`
-    );
+    const response = await axios.get(`${link}${url.pathname}`);
     return response.data;
   } catch (err) {
     console.log(err);

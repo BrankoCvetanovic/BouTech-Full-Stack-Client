@@ -4,6 +4,7 @@ import { useLoaderData, json, useNavigation } from "react-router-dom";
 import { loadedData } from "../util/types";
 import ItemsContainer from "../components/ItemsContainer";
 import HomeCategories from "../components/HomeCategories";
+import { link } from "../util/serverLink";
 
 export default function HomePage() {
   const data = useLoaderData() as loadedData;
@@ -19,9 +20,7 @@ export default function HomePage() {
 }
 export const loader = async () => {
   try {
-    const response = await axios.get(
-      "https://boutech-server-cfe11ab86bbd.herokuapp.com/recommended"
-    );
+    const response = await axios.get(`${link}/recommended`);
     return response.data;
   } catch (err) {
     const errors = err as Error | AxiosError;

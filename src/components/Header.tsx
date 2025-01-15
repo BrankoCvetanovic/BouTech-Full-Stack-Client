@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import CartModal from "./CartModal";
@@ -18,7 +18,9 @@ export default function Header() {
   return (
     <div className="header-container">
       <div className="header">
-        <div className="title">BouTech</div>
+        <div className="title">
+          <Link to={"/"}>BouTech</Link>
+        </div>
         <Button
           onClick={openCart}
           sx={{

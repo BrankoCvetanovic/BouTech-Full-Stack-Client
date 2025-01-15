@@ -13,6 +13,7 @@ import { useState } from "react";
 import Sort from "../components/Sort";
 import { loadedData } from "../util/types";
 import ItemsContainer from "../components/ItemsContainer";
+import { link } from "../util/serverLink";
 
 export default function AppliancesPage() {
   const data = useLoaderData() as loadedData;
@@ -79,10 +80,9 @@ export default function AppliancesPage() {
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const sortBy = new URL(request.url).searchParams.toString();
 
-  let searchUrl =
-    "https://boutech-server-cfe11ab86bbd.herokuapp.com/appliances";
+  let searchUrl = `${link}/appliances`;
   if (sortBy) {
-    searchUrl = `https://boutech-server-cfe11ab86bbd.herokuapp.com/appliances?${sortBy}`;
+    searchUrl = `${link}/appliances?${sortBy}`;
   }
   try {
     const response = await axios.get(searchUrl);

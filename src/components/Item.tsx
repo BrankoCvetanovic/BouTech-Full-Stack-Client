@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { CartContext } from "./CartContext";
+import { link } from "../util/serverLink";
 
 const Item: FC<{
   img: string;
@@ -29,10 +30,7 @@ const Item: FC<{
 
   return (
     <Link to={`${urlCategory}/${id}`} className="item">
-      <img
-        src={`https://boutech-server-cfe11ab86bbd.herokuapp.com/static/${img}`}
-        alt=""
-      />
+      <img src={`${link}/static/${img}`} alt="" />
       <div className="info">
         <div className="name">{name}</div>
         {discount > 0 && (
